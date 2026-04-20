@@ -10,7 +10,7 @@ decoder中是不固定p.
 
 
 
-在encoder中总共输入HW个像素点，每一个像素点都是一个参考点p,每一个p都有K个offset,而每一个offset确定一个采样点。
+在encoder中总共输入HW个像素点，每一个像素点都是一个参考点p,==每一个p都有K个offset,而每一个offset确定一个采样点。==
 在decoder中是不固定的有N(这个N是query数量)个参考点p。每个参考点p都有K个offset，同样每个offset都会确定一个采样点。
 
 
@@ -52,3 +52,4 @@ Decoder复杂度由**O(N⋅HW)→O(N⋅K)** 这里是Decoder中cross-attention�
 
 
 C是输入输出维度，线性投影（QKV）计算就是个C^2^
+
