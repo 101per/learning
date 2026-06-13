@@ -1,0 +1,35 @@
+项目结构
+
+2407014117赵英杰程序源文件/
+├── pom.xml                                    Maven 配置文件
+├── students.txt                               学生数据文件（运行时生成）
+├── src/
+│   ├── main/java/student/
+│   │   ├── Student.java                       学生实体类
+│   │   ├── StudentManager.java                学生管理（增删改查+观察者通知）
+│   │   ├── StudentChangeListener.java         数据变化监听接口
+│   │   ├── StudentRepository.java             文件读写（students.txt）
+│   │   ├── StudentScoreManagementApp.java     主窗口和程序入口
+│   │   ├── StudentTableModel.java             主窗口表格模型
+│   │   ├── StudentEditorDialog.java           学生详情/编辑窗口
+│   │   ├── RankingWindow.java                 实时排名窗口
+│   │   ├── RankingTableModel.java             排名表格模型
+│   │   ├── ChartWindow.java                   可视化图表窗口
+│   │   ├── ChartFontSupport.java              图表中文字体支持
+│   │   ├── ScoreCalculator.java               成绩计算接口
+│   │   ├── AverageScoreCalculator.java        平均成绩计算
+│   │   ├── StandardDeviationCalculator.java   标准差计算
+│   │   ├── ExcelExporter.java                 Excel导出（Apache POI）
+│   │   └── BackupService.java                 多线程自动备份
+
+
+第三方依赖（pom.xml）
+----------------------
+Apache POI 5.2.5        导出 Excel 文件
+JFreeChart 1.5.4        生成可视化图表
+JUnit Jupiter 5.10.2    单元测试
+Log4j Core 2.21.1       Apache POI 日志支持
+
+
+请使用idea打开“2407014117赵英杰程序源文件”文件夹
+程序入口类：student.StudentScoreManagementApp
