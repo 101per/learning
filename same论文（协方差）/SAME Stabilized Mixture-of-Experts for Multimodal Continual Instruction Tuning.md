@@ -29,8 +29,17 @@
 
 这导致了一个问题，全部记录这个协方差的内存消耗成本太高。
 故对这个协方差矩阵**进行SVD分解**，选出前k个“能量”的区域进行存储，确保了我们能够捕捉梯度缩放过程中最重要的方向。
-同时得到高能空间和低能空间：
 
 ![image-20260716215449799](./SAME Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning.assets/image-20260716215449799.png)
 
-对高能空间保护，防止旧路由被更改。并将原始梯度投影到由 V∥ 所捕捉的新任务关键方向上。
+![image-20260718214408778](./SAME Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning.assets/image-20260718214408778.png)
+
+
+
+并将原始梯度**投影到由 V∥（当前任务重要方向）** 所捕捉的新任务关键方向上。
+
+并利用奇异值来加权。
+
+![image-20260718214539995](./SAME Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning.assets/image-20260718214539995.png)
+
+![image-20260718214547199](./SAME Stabilized Mixture-of-Experts for Multimodal Continual Instruction Tuning.assets/image-20260718214547199.png)
