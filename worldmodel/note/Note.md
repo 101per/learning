@@ -24,3 +24,31 @@
 > ![image-20261006182735082](./Note.assets/image-20261006182735082.png)
 >
 > ![image-20261006214945023](./Note.assets/image-20261006214945023.png)
+
+### WorldModelBench: Judging Video Generation Models As World Models
+
+> 传统视频生成 Benchmark 主要评价清晰度、时序一致性和文本匹配，但“视频看起来真实”并不意味着模型真的理解世界动力学。WorldModelBench 因此构建 **350 个 image-text 条件、7 个应用领域、56 个子领域**，从 Instruction Following、Commonsense 和 Physics Adherence 三方面评价生成的未来视频，并收集约 **67K 人类标签**监督自动 Judger。实验表明，当前顶级视频模型仍频繁出现质量不守恒、物体穿透和任务执行失败；同时，通用视频质量指标与物理正确性的相关性很弱。论文进一步证明 Judger 的奖励能够反向用于改善视频生成模型。
+>
+> 视频生成模型到底算不算是worldmodel？提出了一个判断方案。  不仅看视频生成质量，还要看其符不符合物理定律
+> WorldModelBench还可以成为ReWardModel,帮助模型进行后训练
+
+### RLVR-World: Training World Models with Reinforcement Learning
+
+> 传统世界模型通常依赖大规模视频数据进行监督学习，通过最大似然目标学习环境动态。然而，这类方法容易产生视觉合理但物理错误的预测，例如物体运动不符合动力学规律、长期状态演化不稳定等。RLVR-World 认为世界模型训练不应局限于被动模仿数据，而应像强化学习中的智能体一样，通过环境反馈不断优化。
+>
+> 该工作提出将 **Reinforcement Learning with Verifiable Rewards（RLVR）** 引入世界模型训练，通过设计可验证奖励函数，对生成视频中的物理一致性、状态变化合理性以及未来预测质量进行评价，并利用强化学习优化生成模型参数。实验表明，RLVR-World 能够提升世界模型在长时间视频预测、物理规律保持以及交互式模拟任务中的表现，证明强化学习可以成为训练下一代世界模型的重要范式。
+>
+> ![image-20261007182528264](./Note.assets/image-20261007182528264.png)
+>
+> 提出用RL进行post-training的范式。（针对不同任务进行后训练，可以设计不同的奖励函数）
+>
+> 因为之前的训练指标和实际应用的指标不一致，世界模型不只是要把世界的分布构建好，还需要为其实际应用做一些准备。
+>
+> 在language和video WM上做了实验
+>
+> 局限性：
+>
+> 虽然带来了显著提升，但训练通常仅在数百步内收敛
+>
+> 引入物理规则和时间一致性等约束条件，则需要更精细的奖励设计
+
